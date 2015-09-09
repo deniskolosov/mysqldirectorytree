@@ -15,8 +15,8 @@ but, again, in general you will need something more suitable than relational mod
 You have to have mysql server installed and running at localhost.
 
 ```
-git clone
-cd 
+git clone https://github.com/thefivekey/mysqldirectorytree.git
+cd mysqldirectorytree
 pip install -r requirements.txt
 mysql -h localhost -u <username> -p < dbgen.sql 
 
