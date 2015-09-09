@@ -98,7 +98,3 @@ class AddNode(Resource):
 # Add endpoints for api with flask-restful.
 api.add_resource(DirTree, '/tree/<dirname>')
 api.add_resource(AddNode, '/tree/add')
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
