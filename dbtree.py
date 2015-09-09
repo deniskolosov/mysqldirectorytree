@@ -1,3 +1,5 @@
+import sys
+
 from flask import Flask, render_template, jsonify, redirect
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask_restful import reqparse, Api, Resource
@@ -5,7 +7,7 @@ from flask_restful import reqparse, Api, Resource
 # Creating an app and connecting to database
 app = Flask(__name__)
 api = Api(app)
-db_url = 'mysql://root:toor@localhost/DirectoryTree'
+db_url = 'mysql://%s:%s@localhost/dirtree' % (sys.argv[1], sys.argv[2])
 app.config['SQLALCHEMY_DATABASE_URI'] = db_url
 db = SQLAlchemy(app)
 
@@ -98,3 +100,6 @@ class AddNode(Resource):
 # Add endpoints for api with flask-restful.
 api.add_resource(DirTree, '/tree/<dirname>')
 api.add_resource(AddNode, '/tree/add')
+
+if __name__ == "__main__":
+    app.run()
